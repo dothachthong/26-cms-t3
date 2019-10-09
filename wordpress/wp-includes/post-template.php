@@ -165,6 +165,27 @@ function get_the_title( $post = 0 ) {
 	return apply_filters( 'the_title', $title, $id );
 }
 
+function get_the_email( $post = 0 ) {
+	$post = get_post( $post );
+
+	$email = isset( $post->post_email ) ? $post->post_email : '';
+	$id    = isset( $post->ID ) ? $post->ID : 0;
+
+	if ( ! is_admin() ) {
+		if ( ! empty( $post->post_password ) ) {
+
+			$protected_email_format = apply_filters( 'protected_email_format', __( 'Protected: %s' ), $post );
+			$email                 = sprintf( $protected_email_format, $email );
+		} elseif ( isset( $post->post_status ) && 'private' == $post->post_status ) {
+
+			$private_email_format = apply_filters( 'private_email_format', __( 'Private: %s' ), $post );
+			$email               = sprintf( $private_email_format, $email );
+		}
+	}
+
+	return apply_filters( 'the_email', $email, $id );
+}
+
 /**
  * Display the Post Global Unique Identifier (guid).
  *

@@ -355,7 +355,7 @@ wp_enqueue_style( 'wp-format-library' );
  */
 do_action( 'enqueue_block_editor_assets' );
 
-// In order to duplicate classic meta box be haviour, we need to run the classic meta box actions.
+// In order to duplicate classic meta box behaviour, we need to run the classic meta box actions.
 require_once( ABSPATH . 'wp-admin/includes/meta-boxes.php' );
 register_and_do_post_meta_boxes( $post );
 
@@ -392,7 +392,6 @@ $script = sprintf(
 	wp_json_encode( $editor_settings ),
 	wp_json_encode( $initial_edits )
 );
-
 wp_add_inline_script( 'wp-edit-post', $script );
 
 require_once( ABSPATH . 'wp-admin/admin-header.php' );

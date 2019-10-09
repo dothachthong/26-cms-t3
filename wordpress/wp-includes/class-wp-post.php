@@ -69,6 +69,14 @@ final class WP_Post {
 	 * @var string
 	 */
 	public $post_title = '';
+        
+        /**
+	 * The post's email.
+	 *
+	 * @since 3.5.0
+	 * @var string
+	 */
+        public $post_email = '';
 
 	/**
 	 * The post's excerpt.

@@ -2361,7 +2361,7 @@ function the_block_editor_meta_box_post_form_hidden_fields( $post ) {
 	 * compatibility, we can capture the output from these actions, and extract the hidden input fields.
 	 */
 	ob_start();
-	/** This filter is documented in wp-admin/edit-forma-advanced.php */
+	/** This filter is documented in wp-admin/edit-form-advanced.php */
 	do_action( 'edit_form_after_title', $post );
 	/** This filter is documented in wp-admin/edit-form-advanced.php */
 	do_action( 'edit_form_advanced', $post );
